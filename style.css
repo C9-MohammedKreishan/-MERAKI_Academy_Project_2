@@ -1,0 +1,160 @@
+
+
+body{
+    position: relative;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-areas:  "header header header header" "main main main main" "footer footer footer footer";
+    text-align: center;
+} 
+
+.books{
+    display: grid;
+    grid-area: main;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin: 30px;
+}
+.book {
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.book > img{
+    width: 170px;
+    height: 230px;
+    border: 2px solid;
+}
+
+.book > h3 {
+    margin: 20px;
+}
+
+
+
+.book > button {
+    width: 170px;
+    height: 50px;
+    background-color: blue;
+    color: white;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#logo {
+width: 120px;
+height: 120px;
+}
+#logo-btn{
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+header{
+    display: flex;
+    grid-area: header;
+    justify-content:flex-start;
+    text-align: end;
+    gap: 50px;
+}
+
+header > h3 {
+    display: flex;
+    align-self: center;    
+    color: aqua;
+}
+
+header > div{
+    align-self:center;
+}
+
+
+
+footer{
+    display: grid;
+    background-color: black;
+    grid-area: footer;
+    color: white;
+
+}
+
+.View-book {
+    display: inline;
+}
+
+.Add-to-chart {
+    display: block;
+}
+
+.single-book{
+    display: grid;
+    left: 200px;
+    grid-area: main;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    font-size: 24px;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    gap: 20px;
+
+}
+
+.book-title > h3 {
+    display: flex;
+    align-self: flex-end;
+    margin: 30px;
+    border: 2px solid;
+}
+.book-title{
+    display: grid;
+    position: relative;
+    grid-template-rows: 1fr 4fr 1fr;
+
+}
+
+.book-title > img {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    width: 350px;
+    height: 350px;
+    border: 2px solid;
+    margin-left: 30px;
+}
+
+
+
+.paragraphs > p{
+    text-align: left;
+    position: relative;
+    top:150px;
+    border: 2px solid;
+    margin: 20px;
+    padding: 20px;
+
+}
+
+.single-book > div >.rate {
+    border: 2px black solid;
+}
+
+.book-title > button{
+    position: relative;
+    top:340px;
+    margin:30px ;
+   grid-column-start: 1;
+    grid-row-start:2;
+    width: 355px;
+    height: 50px;
+    background-color: blue;
+    color: white;
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+
+
+} 
+
