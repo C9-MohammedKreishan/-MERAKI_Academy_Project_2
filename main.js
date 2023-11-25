@@ -108,7 +108,8 @@ const footer = $("<footer>Home</footer>");
 const categories = $(
   `<div class="categories"> Categories <select class="categories-option"> <option  id ="option-1">History</option><option id ="option-2">Novel</option ><option id ="option-3">Children's Books</option><option id ="option-4">Poetry</option><option id ="option-5">Biography</option><option id ="option-6">Mystery</option><option id ="option-7">Thrillers</option></select></div>`
 );
-const CartBand = $(`<div class=cart-band>  In cart 3 items || total price 9</div>`)
+let totalPrice = 0
+const CartBand = $(`<div class=cart-band>  In cart 3 items && total price is ${totalPrice}</div>`)
 CartBand.appendTo(logo)
 const CartImg = $('<img src="./cart.png" class=cart-img></img>');
 categories.appendTo(logo);
@@ -117,7 +118,6 @@ const BooksInCart = $(`<div class="Books-In-Cart"><div>`);
 const CartItems = $(`<div class="all-books-in-cart"></div>`);
 CartItems.appendTo(body);
 logo.appendTo(body);
-
 // Function shows a single book Title, image and description.
 const showSingleBook = (e) => {
   $(".books").hide(100);
@@ -134,30 +134,44 @@ const showSingleBook = (e) => {
   });
 };
 
+
+
 // Remove from Cart
 const RemoveFromCart = (e) =>{
-  console.log($(e).parent().html());
   $(e).parent().remove()
+  Cart.shift()
+  let tostring = JSON.stringify(Cart)
+  localStorage.setItem("Cart",tostring)
 }
 
 // Add to Cart function
 const AddToCart = (e) => {
-  console.log(100);
   let newItem = helpCart(e);
-  const item = $(
-    `<div class="book-in-cart"> <h3>${newItem.title}</h3> <img src=${newItem.imageSrc}></img> <button class="remove-btn">Remove</button></div>`
-  );
-  item.appendTo(CartItems);
   Cart.push(newItem);
+  let tostring = JSON.stringify(Cart)
+  localStorage.setItem("Cart",tostring)
+
 };
 
 // Show the Cart items (what we added to cart)
 
 const showCart = () => {
-  console.log("working");
+  let totalPrice = 0
+  CartItems.html("")
   $(".books").hide(100);
   $(".single-book").hide();
+  Cart.forEach((element,indx) =>{
+    const item = $(
+      `<div class="book-in-cart"> <h3>${element.title}</h3> <img src=${element.imageSrc}></img> <button class="remove-btn">Remove</button></div>`
+    );
+    totalPrice = totalPrice + element.price
+    console.log(totalPrice);
+    item.appendTo(CartItems);
+  })
+  const CartBand = $(`<div class=cart-band>  In cart 3 items && total price is ${totalPrice}</div>`)
+  CartBand.appendTo(logo)
   $(".all-books-in-cart").show();
+
   $(".remove-btn").on("click",function (){
     RemoveFromCart(this)
   })
@@ -188,6 +202,7 @@ const showCategory = (e) =>{
 
 // Show all books function (Start function)
 const show_books = () => {
+
   BOOKS.forEach((element) => {
     const Book = $(
       `<div class="book"> <h3>${element.title}</h3> <img src=${element.imageSrc}></img></div>`
