@@ -1,8 +1,8 @@
 const BOOKS = [
   {
     id: 1,
-    title: "HTML and CSS: Design and Build Websites",
-    author: "the author",
+    title: "The Sun and Her Flowers",
+    author: "Rupi Kaur",
     imageSrc: "./1.jpg",
     description: "some description about book and author",
     rate: 8,
@@ -10,17 +10,21 @@ const BOOKS = [
   },
   {
     id: 2,
-    title: "Interactive Front-End Web Development",
-    author: "the author",
+    title: "Frozen Rivers",
+    author: " Justin Farley ",
     imageSrc: "./2.jpg",
-    description: "some description about book and author",
-    rate: 8,
-    price: 22,
+    description: `Frozen River is a poetry collection that centers around both nature and mental health. The poetry book is split into two sections: "Frozen Grounds" and "Frozen Hearts" which alternate every other poem.
+
+    "Frozen Grounds" is a selection of nature poetry about the season of winter. Poems about snow, dreary days, lack of light, dealing with the cold, the beauty of nature's silence, etc.
+    
+    "Frozen Hearts" is a selection of poetry about mental health and the poet's own struggle with mental illness. Poems about anxiety, depression, bipolar disorder, seasonal affective disorder, loneliness, heartbreak, hope, and healing.`,
+    rate: 10,
+    price: 12,
   },
   {
     id: 3,
-    title: "PHP & MySQL: Server-side Web Development",
-    author: "the author",
+    title: "Blossoms of Hope",
+    author: "Justin Farley",
     imageSrc: "./3.jpg",
     description: "some description about book and author",
     rate: 8,
@@ -28,29 +32,65 @@ const BOOKS = [
   },
   {
     id: 4,
-    title: "JavaScript from Beginner to Professional",
-    author: " Laurence Lars Svekis",
+    title: "The Photo Ark",
+    author: "Joel Sartore ",
     imageSrc: "./4.jpg",
     description:
-      "This book helps students get to grips with JavaScript fundamentals and apply them in code. It covers the components needed to write scripts, shows you how to apply JavaScript to create interactive web pages, and contains many exercises to get hands-on experience. <br><br>  Understanding the building blocks of JavaScript provides a foundation for your own applications, and the quick guides on HTML and JSON really make it the only book you’ll need when learning JavaScript for web development.",
+      "Sartore is circling the globe, visiting zoos and wildlife rescue centers to create studio portraits of 12,000 species, with an emphasis on those facing extinction. With a goal of photographing every animal in captivity in the world, he has photographed more than 6,000 already and now, thanks to a multi-year partnership with National Geographic, he may reach his goal. This book showcases his animal portraits: from tiny to mammoth, from the Florida grasshopper sparrow to the greater one-horned rhinoceros. Paired with the eloquent prose of veteran wildlife writer Douglas Chadwick, and an inspiring foreword from Harrison Ford, this book presents a thought-provoking argument for saving all the species of our planet.",
     rate: 8,
     price: 22,
   },
   {
     id: 5,
-    title: "about book",
+    title: "World War II Map by Map",
     author: "the author",
-    imageSrc: "./1.jpg",
+    imageSrc: "./5.jpg",
     description: "some description about book and author",
     rate: 8,
     price: 22,
   },
   {
     id: 6,
-    title: "about book",
+    title: "History of the World Map by Map",
     author: "the author",
-    imageSrc: "./2.jpg",
-    description: "some description about book and author",
+    imageSrc: "./6.jpg",
+    description: "This stunning history book for adults starts with the evolution and migration of our oldest ancestors out of Africa. You can then look up maps about the Greece and Persian War, the Mongol Conquests, Medieval Europe's trade routes, and the rise of the Ottomans. Explore maps about the colonisation of North America, the scientific revolution, Napoleon's advances, and Britain's control of India. Then uncover the history of later centuries, such as the Age of Imperialism, the American Civil War, industrialised Europe and the transformation of Japan.",
+    rate: 8,
+    price: 22,
+  },
+  {
+    id: 7,
+    title: "Ultimate Visual History of the World",
+    author: " Jean-Pierre Isbouts",
+    imageSrc: "./7.jpg",
+    description: "History comes to life in this comprehensive overview of humankind, from earliest times to the present day. Each page is filled with stunning visuals and thought-provoking text that make this book an instant classic. From the Babylonian Empire to the Persian Gulf War, from the Xia and Shang Dynasties of Bronze Age China to the new space race, from Egyptian hieroglyphics to the digital age―here, in vivid color and crisp narrative, is the sweeping story of the history of civilization.",
+    rate: 8,
+    price: 22,
+  },
+  {
+    id: 8,
+    title: "Backyard Guide to the Birds of North America",
+    author: "Jonathan Alderfer",
+    imageSrc: "./8.jpg",
+    description: `This comprehensive and beloved guide reveals the most ubiquitous and remarkable species of North American birds, clearly organized by family and paired with identification tips, behavior, vocal descriptions, and more. The new edition features a "Backyard Basics" section from the world's most prolific birdwatcher, Noah Strycker, with tips on attracting and feeding your favorite birds and creating bird-friendly landscapes. Also included are updated descriptions of 150 common North American species, paired with comprehensive range maps, as well as lush indentification artwork and bite-sized facts. With new contributions from Strycker and a modern redesign, the second edition of this perennial favorite will appeal to new and experienced bird enthusiasts alike.`,
+    rate: 8,
+    price: 22,
+  },
+  {
+    id: 9,
+    title: "My First 100 Animals And Birds",
+    author: " Jean-Pierre Isbouts",
+    imageSrc: "./9.jpg",
+    description: "History comes to life in this comprehensive overview of humankind, from earliest times to the present day. Each page is filled with stunning visuals and thought-provoking text that make this book an instant classic. From the Babylonian Empire to the Persian Gulf War, from the Xia and Shang Dynasties of Bronze Age China to the new space race, from Egyptian hieroglyphics to the digital age―here, in vivid color and crisp narrative, is the sweeping story of the history of civilization.",
+    rate: 8,
+    price: 22,
+  },
+  {
+    id: 10,
+    title: "Ultimate Visual History of the World",
+    author: " Jean-Pierre Isbouts",
+    imageSrc: "./10.jpg",
+    description: "History comes to life in this comprehensive overview of humankind, from earliest times to the present day. Each page is filled with stunning visuals and thought-provoking text that make this book an instant classic. From the Babylonian Empire to the Persian Gulf War, from the Xia and Shang Dynasties of Bronze Age China to the new space race, from Egyptian hieroglyphics to the digital age―here, in vivid color and crisp narrative, is the sweeping story of the history of civilization.",
     rate: 8,
     price: 22,
   },
@@ -66,7 +106,7 @@ const main = $('<div class= "books"></div>');
 main.appendTo(body);
 const footer = $("<footer>Home</footer>");
 const categories = $(
-  "<div> Categories <select> <option>History</option><option>Anime</option></select></div>"
+  `<div class="categories"> Categories <select class="categories-option"> <option>History</option><option>Novel</option><option>Children's Books</option><option>Poetry</option><option>Biography</option><option>Mystery</option><option>Thrillers</option></select></div>`
 );
 const CartImg = $('<img src="./cart.png" class=cart-img></img>');
 categories.appendTo(logo);
@@ -90,11 +130,17 @@ const showSingleBook = (e) => {
   singleBook.appendTo(body);
 };
 
+// Remove from Cart
+const RemoveFromCart = (e) =>{
+  console.log($(e).parent().html());
+  $(e).parent().remove()
+}
+
 // Add to Cart function
 const AddToCart = (e) => {
   let newItem = helpCart(e);
   const item = $(
-    `<div class="book-in-cart"> <h3>${newItem.title}</h3> <img src=${newItem.imageSrc}></img></div>`
+    `<div class="book-in-cart"> <h3>${newItem.title}</h3> <img src=${newItem.imageSrc}></img> <button class="remove-btn">Remove</button></div>`
   );
   item.appendTo(CartItems);
   Cart.push(newItem);
@@ -106,6 +152,9 @@ const showCart = () => {
   $(".books").hide();
   $(".View-book").hide();
   $(".all-books-in-cart").show();
+  $(".remove-btn").on("click",function (){
+    RemoveFromCart(this)
+  })
 };
 
 //help function
@@ -148,7 +197,6 @@ const show_books = () => {
     $(".all-books-in-cart").hide();
   });
   $(CartImg).on("click", showCart);
-
   footer.appendTo(body);
 };
 show_books();
