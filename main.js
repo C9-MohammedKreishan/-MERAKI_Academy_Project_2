@@ -79,15 +79,15 @@ logo.appendTo(body);
 // Function shows a single book Title, image and description.
 const showSingleBook = (e) => {
   $(".books").hide();
+  $("Add-to-cart").on("click", function () {
+    AddToCart(e);
+  });
+  $(CartImg).on("click", showCart);
   let newItem = helpCart(e);
   const singleBook = $(
     `<div class= "single-book"><div class="book-title"><h3> ${newItem.title}</h3> <img src= "${newItem.imageSrc}"></img> <button class= "Add-to-cart">ADD To Cart</button></div><div class= "paragraphs"><p>${newItem.description}</p> <p class= "rate">Mollitia cumque quos nemo dolore, excepturi a pariatur illum iure quod dolores?</p></div></div>`
   );
   singleBook.appendTo(body);
-
-  $("Add-to-cart").on("click", function () {
-    AddToCart(e);
-  });
 };
 
 // Add to Cart function
@@ -98,7 +98,6 @@ const AddToCart = (e) => {
   );
   item.appendTo(CartItems);
   Cart.push(newItem);
-
 };
 
 // Show the Cart items (what we added to cart)
@@ -124,14 +123,16 @@ const helpCart = (e) => {
 
 // Show all books function (Start function)
 const show_books = () => {
-
   BOOKS.forEach((element) => {
     const Book = $(
-      `<div class="book"> <h3>${element.title}</h3> <img src=${element.imageSrc}></img><button class="View-book">View</button></div>`
+      `<div class="book"> <h3>${element.title}</h3> <img src=${element.imageSrc}></img></div>`
     );
     Book.appendTo(main);
-    const addToCart = $(` <button class= "Add-to-cart">ADD TO Cart</button>`);
+    const viewBook = $(`<button class="View-book">View</button>`);
+    viewBook.appendTo(Book);
+    const addToCart = $(`<button class= "Add-to-cart">ADD TO Cart</button>`);
     addToCart.appendTo(Book);
+
     addToCart.on("click", function () {
       AddToCart(this);
     });
@@ -145,10 +146,8 @@ const show_books = () => {
     $(".books").show();
     $(".single-book").hide();
     $(".all-books-in-cart").hide();
-
   });
   $(CartImg).on("click", showCart);
-
 
   footer.appendTo(body);
 };

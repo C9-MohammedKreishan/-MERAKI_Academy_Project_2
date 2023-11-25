@@ -96,7 +96,7 @@ footer{
 }
 
 .Add-to-chart {
-    display: block;
+    display: inline;
 }
 
 .single-book{
@@ -169,18 +169,19 @@ footer{
 .all-books-in-cart {
     display: grid;
     grid-area: main;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 2fr;
-    background-color: aqua;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    margin: 30px;
 }
-.book-in-cart{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr;
-    margin: 30px;   
-    grid-column-start: 1;
 
+.book-in-cart {
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin: 30px;
 }
+
 .book-in-cart > img {
     width: 170px;
     height: 230px; 
