@@ -96,8 +96,8 @@ const BOOKS = [
   },
   // {},...
 ];
-Cart = [];
-
+const Cart = JSON.parse(localStorage.getItem("Cart")) ||[];
+console.log(Cart);
 const body = $("body");
 const logo = $(
   '<header><img src="./Logo.jpg" id="logo"></img> <h3>Home</h3> <h3>Contact us</h3></header>'
@@ -108,6 +108,8 @@ const footer = $("<footer>Home</footer>");
 const categories = $(
   `<div class="categories"> Categories <select class="categories-option"> <option  id ="option-1">History</option><option id ="option-2">Novel</option ><option id ="option-3">Children's Books</option><option id ="option-4">Poetry</option><option id ="option-5">Biography</option><option id ="option-6">Mystery</option><option id ="option-7">Thrillers</option></select></div>`
 );
+const CartBand = $(`<div class=cart-band>  In cart 3 items || total price 9</div>`)
+CartBand.appendTo(logo)
 const CartImg = $('<img src="./cart.png" class=cart-img></img>');
 categories.appendTo(logo);
 CartImg.appendTo(logo);
@@ -118,16 +120,18 @@ logo.appendTo(body);
 
 // Function shows a single book Title, image and description.
 const showSingleBook = (e) => {
-  $(".books").hide();
-  $("Add-to-cart").on("click", function () {
-    AddToCart(e);
-  });
-  $(CartImg).on("click", showCart);
+  $(".books").hide(100);
+
+  // CartImg.on("click", showCart);
   let newItem = helpCart(e);
   const singleBook = $(
     `<div class= "single-book"><div class="book-title"><h3> ${newItem.title}</h3> <img src= "${newItem.imageSrc}"></img> <button class= "Add-to-cart">ADD To Cart</button></div><div class= "paragraphs"><p>${newItem.description}</p> <p class= "rate">Rating : ${newItem.rate} <br> <br>Price: ${newItem.price}$</p></div></div>`
   );
+
   singleBook.appendTo(body);
+  $(".Add-to-cart").on("click", function () {
+    AddToCart(e);
+  });
 };
 
 // Remove from Cart
@@ -138,6 +142,7 @@ const RemoveFromCart = (e) =>{
 
 // Add to Cart function
 const AddToCart = (e) => {
+  console.log(100);
   let newItem = helpCart(e);
   const item = $(
     `<div class="book-in-cart"> <h3>${newItem.title}</h3> <img src=${newItem.imageSrc}></img> <button class="remove-btn">Remove</button></div>`
@@ -149,8 +154,9 @@ const AddToCart = (e) => {
 // Show the Cart items (what we added to cart)
 
 const showCart = () => {
-  $(".books").hide();
-  $(".View-book").hide();
+  console.log("working");
+  $(".books").hide(100);
+  $(".single-book").hide();
   $(".all-books-in-cart").show();
   $(".remove-btn").on("click",function (){
     RemoveFromCart(this)
@@ -211,9 +217,9 @@ const show_books = () => {
     showCategory(this)
   })
 
-  $(CartImg).on("click", showCart);
   footer.appendTo(body);
 };
+$(CartImg).on("click", showCart);
 
 show_books();
 
