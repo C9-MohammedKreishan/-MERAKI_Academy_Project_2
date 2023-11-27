@@ -4,8 +4,8 @@ const BOOKS = [
     title: "The Sun and Her Flowers",
     author: "Rupi Kaur",
     imageSrc: "./1.jpg",
-    description: "some description about book and author",
-    rate:"⭐⭐⭐⭐⭐",
+    description: `From rupi kaur, the #1 New York Times bestselling author of milk and honey, comes her long-awaited second collection of poetry. A vibrant and transcendent journey about growth and healing. Ancestry and honoring one’s roots. Expatriation and rising up to find a home within yourself. <br> <br>Divided into five chapters and illustrated by kaur, the sun and her flowers is a journey of wilting, falling, rooting, rising, and blooming. A celebration of love in all its forms.`,
+    rate: "⭐⭐⭐⭐⭐",
     price: 22,
   },
   {
@@ -54,7 +54,8 @@ const BOOKS = [
     title: "History of the World Map by Map",
     author: "the author",
     imageSrc: "./6.jpg",
-    description: "This stunning history book for adults starts with the evolution and migration of our oldest ancestors out of Africa. You can then look up maps about the Greece and Persian War, the Mongol Conquests, Medieval Europe's trade routes, and the rise of the Ottomans. Explore maps about the colonisation of North America, the scientific revolution, Napoleon's advances, and Britain's control of India. Then uncover the history of later centuries, such as the Age of Imperialism, the American Civil War, industrialised Europe and the transformation of Japan.",
+    description:
+      "This stunning history book for adults starts with the evolution and migration of our oldest ancestors out of Africa. You can then look up maps about the Greece and Persian War, the Mongol Conquests, Medieval Europe's trade routes, and the rise of the Ottomans. Explore maps about the colonisation of North America, the scientific revolution, Napoleon's advances, and Britain's control of India. Then uncover the history of later centuries, such as the Age of Imperialism, the American Civil War, industrialised Europe and the transformation of Japan.",
     rate: "⭐⭐⭐⭐⭐",
     price: 22,
   },
@@ -63,7 +64,8 @@ const BOOKS = [
     title: "Ultimate Visual History of the World",
     author: " Jean-Pierre Isbouts",
     imageSrc: "./7.jpg",
-    description: "History comes to life in this comprehensive overview of humankind, from earliest times to the present day. Each page is filled with stunning visuals and thought-provoking text that make this book an instant classic. From the Babylonian Empire to the Persian Gulf War, from the Xia and Shang Dynasties of Bronze Age China to the new space race, from Egyptian hieroglyphics to the digital age―here, in vivid color and crisp narrative, is the sweeping story of the history of civilization.",
+    description:
+      "History comes to life in this comprehensive overview of humankind, from earliest times to the present day. Each page is filled with stunning visuals and thought-provoking text that make this book an instant classic. From the Babylonian Empire to the Persian Gulf War, from the Xia and Shang Dynasties of Bronze Age China to the new space race, from Egyptian hieroglyphics to the digital age―here, in vivid color and crisp narrative, is the sweeping story of the history of civilization.",
     rate: "⭐⭐",
     price: 22,
   },
@@ -81,7 +83,8 @@ const BOOKS = [
     title: "Elon Musk",
     author: " Jean-Pierre Isbouts",
     imageSrc: "./9.jpg",
-    description: "From the author of Steve Jobs and other bestselling biographies, this is the astonishingly intimate story of the most fascinating and controversial innovator of our era—a rule-breaking visionary who helped to lead the world into the era of electric vehicles, private space exploration, and artificial intelligence. Oh, and took over Twitter.",
+    description:
+      "From the author of Steve Jobs and other bestselling biographies, this is the astonishingly intimate story of the most fascinating and controversial innovator of our era—a rule-breaking visionary who helped to lead the world into the era of electric vehicles, private space exploration, and artificial intelligence. Oh, and took over Twitter.",
     rate: "⭐⭐⭐⭐",
     price: 22,
   },
@@ -90,39 +93,75 @@ const BOOKS = [
     title: "George Washington Dealmaker",
     author: "Cyrus A. Ansary",
     imageSrc: "./10.jpg",
-    description: "Drawing on substantial new material, Cyrus A. Ansary gives a riveting account of how George Washington sought to put in place in America an economic system that was the antithesis of what had existed in the colonies under British rule. The entrepreneurial economy – which nurtures and rewards innovation and inventiveness – did not sprout into being in the United States by sheer happenstance. It was put in place by our first President. He painstakingly laid the foundation for it, but it did not take root without a struggle. He needed extraordinary tenacity to overcome fierce opposition to his program.President Washington’s economic initiatives are the least well understood facets of Washington’s busy and productive life. They enlarged the dreams and opportunities of Americans, led to a flourishing entrepreneurial climate, and are an inspiring tale for our time.",
+    description:
+      "Drawing on substantial new material, Cyrus A. Ansary gives a riveting account of how George Washington sought to put in place in America an economic system that was the antithesis of what had existed in the colonies under British rule. The entrepreneurial economy – which nurtures and rewards innovation and inventiveness – did not sprout into being in the United States by sheer happenstance. It was put in place by our first President. He painstakingly laid the foundation for it, but it did not take root without a struggle. He needed extraordinary tenacity to overcome fierce opposition to his program.President Washington’s economic initiatives are the least well understood facets of Washington’s busy and productive life. They enlarged the dreams and opportunities of Americans, led to a flourishing entrepreneurial climate, and are an inspiring tale for our time.",
     rate: "⭐⭐⭐⭐",
     price: 22,
   },
   // {},...
 ];
-const Cart = JSON.parse(localStorage.getItem("Cart")) ||[];
-console.log(Cart);
+
+const Cart = JSON.parse(localStorage.getItem("Cart")) || [];
 const body = $("body");
 const logo = $(
-  '<header><img src="./Logo.jpg" id="logo"></img> <h3>Home</h3> <h3>Contact us</h3></header>'
+  '<header><img src="./Logo.jpg" id="logo"></img> <h3 class="home">Home</h3> <h3 class="contact-us">Contact us</h3></header>'
 );
-const main = $('<div class= "books"></div>');
+const main = $(
+  '<div class= "books"><img class="welcome-img" src="./welcome.jpg"></div>'
+);
 main.appendTo(body);
-const footer = $("<footer>Home</footer>");
+const footer = $(`<footer><h3 class="home">Home</h3></footer>`);
+footer.appendTo(body);
 const categories = $(
-  `<div class="categories"> Categories <select class="categories-option"> <option  id ="option-1">History</option><option id ="option-2">Novel</option ><option id ="option-3">Children's Books</option><option id ="option-4">Poetry</option><option id ="option-5">Biography</option><option id ="option-6">Mystery</option><option id ="option-7">Thrillers</option></select></div>`
+  `<div class="categories"> Categories 
+  <select class="categories-option"> 
+  <option  id ="option-1">History</option>
+  <option id ="option-2">Novel</option >
+  <option id ="option-3">Children's Books</option>
+  <option id ="option-4">Poetry</option>
+  <option id ="option-5">Biography</option>
+  <option id ="option-6">Mystery</option>
+  <option id ="option-7">Thrillers</option>
+  </select>
+  </div>`
 );
-let totalPrice = 0
-const CartBand = $(`<div class=cart-band>  In cart 3 items && total price is ${totalPrice}</div>`)
-CartBand.appendTo(logo)
-const CartImg = $('<img src="./cart.png" class=cart-img></img>');
 categories.appendTo(logo);
+
+let totalPrice = 0;
+const CartBand = $(
+  `<div class=cart-band>  In cart ${Cart.length} items && total price is ${totalPrice}</div>`
+);
+CartBand.appendTo(logo);
+const CartImg = $('<img src="./cart.png" class=cart-img></img>');
 CartImg.appendTo(logo);
 const BooksInCart = $(`<div class="Books-In-Cart"><div>`);
 const CartItems = $(`<div class="all-books-in-cart"></div>`);
 CartItems.appendTo(body);
 logo.appendTo(body);
-// Function shows a single book Title, image and description.
+
+/* ============================ /Function shows contact us Page =================================================================== */
+
+const showContactUs = () => {
+  $(".books").hide();
+  $(".single-book").hide();
+  $(".all-books-in-cart").hide();
+  const contactUs =
+    $(`<div class="contact-us-container"><h3>Contact us</h3> <p>Feel free to get in touch with us! Whether you have questions about our products, need assistance with an order, or just want to say hello, our friendly team is here to help. Your feedback is important to us.<br> </p>
+  <div class="logos-class">
+  <img id="email-logo" src="./email_logo.jpg"> <p id="email-address">info@bookstore.com</p> 
+  <img id="phone-logo" src="./phone.png"> <p id="phone-number">009627787878787</p>
+  <img id="location-logo" src="./Location.jpg"> <p id="Location"> Crossville, TN, United States</p></div>
+  </div>`);
+  contactUs.appendTo(body);
+};
+
+/* ============================================================================================================================== */
+/* ============================Function shows a single book Title, image and description.=========================================*/
+
 const showSingleBook = (e) => {
   $(".books").hide(100);
+  $(".contact-us-container").hide();
 
-  // CartImg.on("click", showCart);
   let newItem = helpCart(e);
   const singleBook = $(
     `<div class= "single-book"><div class="book-title"><h3> ${newItem.title}</h3> <img src= "${newItem.imageSrc}"></img> <button class= "Add-to-cart">ADD To Cart</button></div><div class= "paragraphs"><p>${newItem.description}</p> <p class= "rate">Rating : ${newItem.rate} <br> <br>Price: ${newItem.price}$</p></div></div>`
@@ -133,48 +172,48 @@ const showSingleBook = (e) => {
     AddToCart(e);
   });
 };
+/* ================================================================================================================================ */
 
+//* ========================== Show the Cart items (what we added to cart) ======================================================================= */
 
+const showCart = () => {
+  let totalPrice = 0;
+  CartItems.html("");
+  $(".books").hide(100);
+  $(".single-book").hide();
+  $(".contact-us-container").hide();
 
+  Cart.forEach((element, indx) => {
+    const item = $(
+      `<div class="book-in-cart"> <h3>${element.title}</h3> <img src=${element.imageSrc}></img> <button class="remove-btn">Remove</button></div>`
+    );
+    totalPrice = totalPrice + element.price;
+    item.appendTo(CartItems);
+  });
+  const CartBand = $(
+    `<div class=cart-band>  In cart ${Cart.length} items && total price is ${totalPrice}</div>`
+  );
+  CartBand.appendTo(logo);
+  $(".all-books-in-cart").show();
+
+  $(".remove-btn").on("click", function () {
+    RemoveFromCart(this);
+  });
+};
 // Remove from Cart
-const RemoveFromCart = (e) =>{
-  $(e).parent().remove()
-  Cart.shift()
-  let tostring = JSON.stringify(Cart)
-  localStorage.setItem("Cart",tostring)
-}
+const RemoveFromCart = (e) => {
+  $(e).parent().remove();
+  Cart.shift();
+  let tostring = JSON.stringify(Cart);
+  localStorage.setItem("Cart", tostring);
+};
 
 // Add to Cart function
 const AddToCart = (e) => {
   let newItem = helpCart(e);
   Cart.push(newItem);
-  let tostring = JSON.stringify(Cart)
-  localStorage.setItem("Cart",tostring)
-
-};
-
-// Show the Cart items (what we added to cart)
-
-const showCart = () => {
-  let totalPrice = 0
-  CartItems.html("")
-  $(".books").hide(100);
-  $(".single-book").hide();
-  Cart.forEach((element,indx) =>{
-    const item = $(
-      `<div class="book-in-cart"> <h3>${element.title}</h3> <img src=${element.imageSrc}></img> <button class="remove-btn">Remove</button></div>`
-    );
-    totalPrice = totalPrice + element.price
-    console.log(totalPrice);
-    item.appendTo(CartItems);
-  })
-  const CartBand = $(`<div class=cart-band>  In cart 3 items && total price is ${totalPrice}</div>`)
-  CartBand.appendTo(logo)
-  $(".all-books-in-cart").show();
-
-  $(".remove-btn").on("click",function (){
-    RemoveFromCart(this)
-  })
+  let tostring = JSON.stringify(Cart);
+  localStorage.setItem("Cart", tostring);
 };
 
 //help function
@@ -186,23 +225,15 @@ const helpCart = (e) => {
       tempObj.imageSrc = element.imageSrc;
       tempObj.description = element.description;
       tempObj.price = element.price;
-      tempObj.rate = element.rate
+      tempObj.rate = element.rate;
     }
   });
   return tempObj;
 };
+/* ==================================================================================================================================== */
 
-//Show History Books function
-const showCategory = (e) =>{
-  $(".books").hide();
-  $(".single-book").hide();
-  $(".all-books-in-cart").hide();
-  console.log($(e).html());
-}
-
-// Show all books function (Start function)
+// ============================== Show all books function (Start function)===============================================================
 const show_books = () => {
-
   BOOKS.forEach((element) => {
     const Book = $(
       `<div class="book"> <h3>${element.title}</h3> <img src=${element.imageSrc}></img></div>`
@@ -217,30 +248,36 @@ const show_books = () => {
       AddToCart(this);
     });
   });
-  $(".all-books-in-cart").hide();
 
+  $(".all-books-in-cart").hide();
+  $(".contact-us-container").hide();
   $(".View-book").on("click", function () {
     showSingleBook(this);
   });
-  $("#logo").on("click", () => {
-    $(".books").show();
-    $(".single-book").hide();
-    $(".all-books-in-cart").hide();
-  });
-  console.log($(`#option-1`));
-  $(`#option-1`).on("click",function () {
-    showCategory(this)
-  })
-
-  footer.appendTo(body);
 };
+
+/* ============================================================================================================================= */
+
+/* === Listening to cart img and home =====*/
+
 $(CartImg).on("click", showCart);
 
+$("#logo").on("click", () => {
+  $(".books").show();
+  $(".single-book").hide();
+  $(".all-books-in-cart").hide();
+  $(".contact-us-container").hide();
+});
+
+$(".home").on("click", () => {
+  $(".books").show();
+  $(".single-book").hide(100);
+  $(".all-books-in-cart").hide(100);
+  $(".contact-us-container").hide();
+});
+$(".categories-option").on("change",function () {
+  console.log($(this).find("option").text());
+});
+$(".contact-us").on("click", showContactUs);
+
 show_books();
-
-
-
-
-
-
-
