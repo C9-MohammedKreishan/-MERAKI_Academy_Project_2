@@ -93,7 +93,6 @@ header > .cart-band{
 }
 header > .cart-img{
     position:relative;
-    left: 70px;
     margin: 30px;
     display: flex;
     grid-row-start: 2;
@@ -113,7 +112,9 @@ header > h3 {
   
 }
 
-header > div{
+header > .categories{
+    font-size: 20px;
+    font-weight: bold;
     align-self:center;
     grid-row-start: 2;
 
@@ -124,12 +125,99 @@ header > div{
 /* =============================== Footer =============================================================================== */
 footer{
     display: grid;
+    position: relative;
     background-color: black;
     grid-area: footer;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     color: white;
+}
+footer > .Register {
+    position: absolute;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    margin: 50px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.17em;
+
+}
+footer > h3 {
+    cursor: pointer;
+}
+
+footer > .Subscribe-btn{
+    position: absolute;
+    color: black;
+    background-color: white;
+    grid-column-start: 4;
+    grid-row-start: 2;
+    font-size:20px;
+    width: 350px;
+    height: 50px;
+    top:60px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 24px;
 
 }
 
+footer > #enter-email{
+    position: absolute;
+    
+    grid-column-start: 4;
+    grid-row-start: 1;
+    font-size:26px;
+    top:50px;
+
+}
+
+footer >.Register > #Register-btn {
+    cursor: pointer;
+
+}
+
+footer > .type-your-email{
+    position: absolute;
+    bottom: 80px;
+    grid-column-start: 4;
+    grid-row-start: 2;
+    width: 340px;
+    height: 40px;
+}
+/* ==================================================================================================================== */
+
+/* ===================================== Register Page ================================================================= */
+
+.Register-page {
+    display: grid;
+    position: relative;
+    grid-area: main;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.Register-page > .input-Name{
+    grid-column-start: 1;
+    /* grid-column-end: ; */
+    grid-row-start: 1;
+
+
+}
+
+
+.Register-page > .input-Email{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+
+}
+
+
+
+
+
+/* ======================================================================================================================= */
 .View-book {
     display: inline;
 }
